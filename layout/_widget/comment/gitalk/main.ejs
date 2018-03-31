@@ -5,6 +5,8 @@
 
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
 <script>
     var gitalk = new Gitalk({
             clientID: '<%= theme.comment.gitalk_client_id %>',
@@ -13,7 +15,8 @@
             owner: '<%= theme.comment.gitalk_owner %>',
             admin: ['<%= theme.comment.gitalk_owner %>'],
             // facebook-like distraction free mode
-            distractionFreeMode: false
+            distractionFreeMode: false,
+            id: md5(location.href)
         })
    gitalk.render('gitalk-container')
 </script>
